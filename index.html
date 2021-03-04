@@ -1,0 +1,95 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+ <title>Kredi Bank</title> 
+</head> 
+<style type="text/css"> 
+	body{
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background: darkslategrey;
+
+	}
+	.div{
+			width: 300px;
+			padding: 40px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			
+			text-align: center;
+			border-radius: 5px;
+			backdrop-filter:blur(15px);
+			flex-direction: column;
+			z-index: 10;
+			box-shadow: 0 0 10px rgba(0,0,0,0.5);
+		}
+	.container{
+			width: 100%;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			backdrop-filter:blur(15px);
+			/*flex-direction: column;*/
+			z-index: 10;
+			box-shadow: 0 0 10px rgba(0,0,0,0.5);
+			color: white;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+		.input{
+			background: 0;
+			background: none;
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			border: 2px solid #3498db;
+			padding: 14px 10px;
+			width: 200px;
+			outline: none;
+			color: white;
+			border-radius: 24px;
+			transition: all .5s ease-in-out; 
+		}
+		.input:focus{
+			width: 280px;
+			border-color: #2ecc71;
+		}
+		h1{
+			color: white;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+</style> 
+<body> 
+<div class="container">
+		<p id="dunyo"></p>
+	</div>
+
+<form class="div">
+	<h1>Кредит Калькулятор</h1>
+ 	<input id="summa" type="text" onkeyup="hisob()" class="input" placeholder="Введите сумму">
+ 	<input max="100" min="0" id="foiz" type="text" step="1" onkeyup ="hisob()" class="input" placeholder="Введите процент">
+	<input id="oy" type="text" step="1" onkeyup="hisob()" class="input" placeholder="Введите количество месяцев">
+</form>
+ 	<!-- <h2 id="dunyo"></h2> --> 
+
+ <script type="text/javascript"> 
+
+ 	function hisob() { 
+		let summa = document.getElementById('summa').value; 
+		let foiz= document.getElementById('foiz').value; 
+		let oy = document.getElementById('oy').value; 
+		let pul = (summa * (foiz * 0.1)) / oy; 
+		let dunyo = ((summa / oy) + pul).toFixed(2); 
+		document.getElementById('dunyo').innerHTML = "Oylik to`lov = " + dunyo + " so'm";
+ } 
+
+</script> 
+</body> 
+</html>
